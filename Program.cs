@@ -16,15 +16,13 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            double s = 0;
-            Console.WriteLine();
-
-            for (int i = 2; i <= 35; i += 3)
+            //1 задача
+            int sum1 = 0;
+            for (int i = 2; i < 36; i += 3)
             {
-                s += i;
+                sum1 = sum1 + i;
             }
-            Console.WriteLine($"1.1: {s}");
-            Console.WriteLine();
+            Console.WriteLine(sum1);
 
             s = 0;
             for (double i = 1; i <= 10; i++)
@@ -34,36 +32,32 @@ namespace ConsoleApp1
             Console.WriteLine($"1.2: {s}");
             Console.WriteLine();
 
-            s = 0;
-            for (double i = 2; i <= 112; i++)
+            //3 задача
+            double A3 = 0;
+            for (double i = 2; i <= 112; i += 2)
             {
-                s += i / (i + 1);
+                A += (i / (i + 1));
             }
-            Console.WriteLine($"1.3: {s}");
-            Console.WriteLine();
+            Console.WriteLine(A3);
 
-            s = 0;
-            Console.WriteLine("Введите x: ");
-            double xo = Convert.ToDouble(Console.ReadLine());
-            for (double i = 1; i <= 9; i++)
+            //4 задача
+            double sum4 = 0;
+            int x = 10;
+            for (int i = 0; i <= 8; i += 1)
             {
-                s += Math.Cos(i * xo) / Math.Pow(xo, i);
+                sum4 += Math.Cos((i + 1) * x) / Math.Pow(x, 0);
             }
-            Console.WriteLine($"1_4: {s}");
-            Console.WriteLine();
+            Console.WriteLine(sum4);
 
-            s = 0;
-            Console.WriteLine("Введите p: ");
-            double p = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите h: ");
-            double h = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
-            for (double i = 0; i <= 9; i++)
+            /5задача
+            int p = 1;
+            int sum5 = 0;
+            for (int h = 0; h <= 9; h++)
             {
-                s += (p + i * h) * (p + i * h);
+                int ph = p + h;
+                sum5 = (int)(sum5 + Math.Pow(ph, 2));
             }
-            Console.WriteLine($"1.5: {s}");
-            Console.WriteLine();
+            Console.WriteLine(sum5);
 
             s = 0;
             double y;
