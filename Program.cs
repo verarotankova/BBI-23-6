@@ -41,23 +41,30 @@ namespace ConsoleApp1
             Console.WriteLine(A3);
 
             //4 задача
-            double sum4 = 0;
-            int x = 10;
-            for (int i = 0; i <= 8; i += 1)
+            double x4 = 1.5;
+            double sum4 = 0.0;
+            double xPower = 1.0;
+            for (int i = 1; i <= 9; i++)
             {
-                sum4 += Math.Cos((i + 1) * x) / Math.Pow(x, 0);
+                double term = Math.Cos(i * x4) / xPower;
+                sum4 += term;
+                xPower *= x;
             }
+
             Console.WriteLine(sum4);
 
-            /5задача
-            int p = 1;
+            //5задача
+            int p = 2;
+            int h = 3;
             int sum5 = 0;
-            for (int h = 0; h <= 9; h++)
+
+            for (int i = 0; i < 10; i++)
             {
-                int ph = p + h;
-                sum5 = (int)(sum5 + Math.Pow(ph, 2));
+                int term = (p + i * h) * (p + i * h);
+                sum5 += term;
             }
-            Console.WriteLine(sum5);
+
+            Console.WriteLine("Сумма равна: " + sum5);
 
             s = 0;
             double y;
@@ -88,16 +95,20 @@ namespace ConsoleApp1
             Console.WriteLine($"1.8: {s}");
             Console.WriteLine();
 
-            s = 0;
-            k = 1;
-            int z = -1;
-            for (double i = 1; i <= 6; i++)
+            double sum9 = 0.0;
+            int step9 = 1;
+            int factorial = 1;
+
+            for (int i = 1; i <= 6; i++)
             {
-                k *= i;
-                s += z * Math.Pow(5, i) / k;
-                z *= -1;
+                double term9 = ((i % 2 == 0) ? 1 : -1) * step9 / factorial;
+                sum += term9;
+
+                step9 *= 5;
+                factorial *= i + 1;
             }
-            Console.WriteLine($"1.9: {s}");
+
+            Console.WriteLine(sum9);
             Console.WriteLine();
 
             s = 1;
@@ -120,14 +131,17 @@ namespace ConsoleApp1
             }
             Console.WriteLine("\n");
 
-            s = 0;
-            Console.WriteLine("Введите x:");
-            double x = Convert.ToDouble(Console.ReadLine());
-            for (double i = 0; i <= 10; i++)
+            double x12 = 2.5;
+            double sum12 = 0.0;
+            double x_step12 = 1.0;
+
+            for (int i = 0; i <= 10; i++)
             {
-                s += 1 / Math.Pow(x, i);
+                sum12 += 1 / x_step12
+                x_step12 *= x12;
             }
-            Console.WriteLine($"1.12: {s}");
+
+            Console.WriteLine(sum12);
             Console.WriteLine();
 
             Console.WriteLine("1.13:");
@@ -191,9 +205,9 @@ namespace ConsoleApp1
             double r = 1, q = 0;
             while (Math.Cos(r * x) / (r * r) >= 0.0001)
             {
-                q += m;
+                q += Math.Cos(r * x) / (r * r);
                 r++;
-                m = Math.Cos(r * x) / (r * r);
+             
             }
             Console.WriteLine($"2.1: {q}");
             Console.WriteLine();
