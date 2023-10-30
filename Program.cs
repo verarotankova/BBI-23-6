@@ -1,384 +1,126 @@
 ﻿using System;
 
-namespace ConsoleApp1
+namespace ConsoleApp2
 {
     internal class Program
     {
-        private static int n;
-        public static double factorial(double xo)
-        {
-            if (xo == 1 ^ xo == 0)
-            {
-                return 1;
-            }
-            else return xo * factorial(xo - 1);
-        }
-
         static void Main(string[] args)
         {
-            //1 задача
-            int sum1 = 0;
-            for (int i = 2; i < 36; i += 3)
+            //3 задача 1 уровень
+            double c;
+            Console.WriteLine("введите а: ");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("введите b: ");
+            double b = Convert.ToDouble(Console.ReadLine());
+            
+            if (a > 0)
             {
-                sum1 = sum1 + i;
+                c = Math.Max(a, b);
             }
-            Console.WriteLine(sum1);
-
-            s = 0;
-            for (double i = 1; i <= 10; i++)
+            else
             {
-                s += 1 / i;
+                c = Math.Min(a, b);
             }
-            Console.WriteLine($"1.2: {s}");
-            Console.WriteLine();
-
-            //3 задача
-            double A3 = 0;
-            for (double i = 2; i <= 112; i += 2)
+            Console.WriteLine(c);
+           
+            //6 задача 1 уровень
+            double r1 = 3.2;
+            double s1 = 3.5;
+            if (s1 < (r1 + r1))
             {
-                A += (i / (i + 1));
+                Console.WriteLine("False");
             }
-            Console.WriteLine(A3);
-
-            //4 задача
-            double x4 = 1.5;
-            double sum4 = 0.0;
-            double xPower = 1.0;
-            for (int i = 1; i <= 9; i++)
+            else
             {
-                double term = Math.Cos(i * x4) / xPower;
-                sum4 += term;
-                xPower *= x;
+                Console.WriteLine("True");
+
             }
-
-            Console.WriteLine(sum4);
-
-            //5задача
-            int p = 2;
-            int h = 3;
-            int sum5 = 0;
-
-            for (int i = 0; i < 10; i++)
+            double r2 = 3.2;
+            double s2 = 4.3;
+            if (s2 < (r2 + r2))
             {
-                int term = (p + i * h) * (p + i * h);
-                sum5 += term;
+                Console.WriteLine("False");
             }
+            else
+            {
+                Console.WriteLine("True");
 
-            Console.WriteLine("Сумма равна: " + sum5);
+            }
+            double r3 = 6;
+            double s3 = 9;
+            if (s3 < (r3 + r3))
+            {
+                Console.WriteLine("False");
+            }
+            else
+            {
+                Console.WriteLine("True");
 
-            s = 0;
+            }
+            //9 задача 1 уровень
+            Console.WriteLine("введите x: ");
+            double x = Convert.ToDouble(Console.ReadLine());
             double y;
-            Console.WriteLine("1_6:");
-            Console.WriteLine("  x   |  y");
-            for (double i = -4; i <= 4; i += 0.5)
+            if (x <= (-1))
             {
-                y = 0.5 * i * i - 7 * i;
-                Console.WriteLine($"{i}     {y}");
+                y = 0;
             }
-            Console.WriteLine();
-
-            s = 1;
-            for (double i = 1; i <= 6; i++)
+            if(x > 0)
             {
-                s *= i;
+                y = 1;
             }
-            Console.WriteLine($"1.7: {s}");
-            Console.WriteLine();
-
-            s = 0;
-            double k = 1;
-            for (double i = 1; i <= 6; i++)
+            else
             {
-                k *= i;
-                s += k;
+                y = 1 + x;
             }
-            Console.WriteLine($"1.8: {s}");
-            Console.WriteLine();
-
-            double sum9 = 0.0;
-            int step9 = 1;
-            int factorial = 1;
-
-            for (int i = 1; i <= 6; i++)
+            Console.WriteLine(y);
+            //3 задача 2 уровень
+            Console.WriteLine("введите количество учеников в классе: ");
+            double count_students = Convert.ToDouble(Console.ReadLine());
+            double c3_2 = 0;
+            for (int i3_2 = 0; i3_2 < count_students; i3_2++)
             {
-                double term9 = ((i % 2 == 0) ? 1 : -1) * step9 / factorial;
-                sum += term9;
-
-                step9 *= 5;
-                factorial *= i + 1;
-            }
-
-            Console.WriteLine(sum9);
-            Console.WriteLine();
-
-            s = 1;
-            for (double i = 1; i <= 7; i++)
-            {
-                s *= 3;
-            }
-            Console.WriteLine($"1.10: {s}");
-            Console.WriteLine();
-
-            Console.WriteLine("1.11:");
-            for (double i = 1; i <= 6; i++)
-            {
-                Console.Write($"{i} ");
-            }
-            Console.Write("\n");
-            for (double i = 1; i <= 6; i++)
-            {
-                Console.Write("5 ");
-            }
-            Console.WriteLine("\n");
-
-            double x12 = 2.5;
-            double sum12 = 0.0;
-            double x_step12 = 1.0;
-
-            for (int i = 0; i <= 10; i++)
-            {
-                sum12 += 1 / x_step12
-                x_step12 *= x12;
-            }
-
-            Console.WriteLine(sum12);
-            Console.WriteLine();
-
-            Console.WriteLine("1.13:");
-            Console.WriteLine("  x   |   y");
-            for (double _ = -1.5; _ <= 1.5; _ += 0.1)
-            {
-                if (_ <= -1)
+                Console.WriteLine($"введите вес ученика: {i3_2 + 1}");
+                double weight = Convert.ToDouble(Console.ReadLine());
+                if(weight < 30)
                 {
-                    y = 1;
+                    c3_2 += 0.2;
                 }
-                else if (_ > -1 & _ <= 1)
+            }
+            Console.WriteLine($"добавить молока: {c3_2}");
+            //6 задача 2 уровень
+            Console.WriteLine("введите количество точек: ");
+            double count_tocek = Convert.ToDouble(Console.ReadLine());
+            for (int i6_2 = 0; i6_2 < count_tocek; i6_2++)
+            {
+                Console.WriteLine($"введите координату x точки:  {i6_2+1}");
+                double x6_2 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine($"введите координату y точки:  {i6_2+1}");
+                double y6_2 = Convert.ToDouble(Console.ReadLine());
+                if (x6_2 <= Math.PI && x6_2 > 0 && y6_2 >= 0 && y6_2 <= Math.Sin(x))
                 {
-                    y = -_;
+                    Console.WriteLine($"точка {i6_2+1} подходит");
+
                 }
                 else
                 {
-                    y = -1;
-                }
-                _ = Math.Round(_, 1);
-                y = Math.Round(y, 1);
-                Console.WriteLine($"{_}     {y}");
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("1.14:");
-            double a = 1;
-            double b = 1;
-            double c;
-            Console.Write("1 1 ");
-            for (double t = 1; t <= 6; t++)
-            {
-                c = a + b;
-                a = b;
-                b = c;
-                Console.Write($"{b} ");
-            }
-            Console.WriteLine("\n");
-
-            double a1 = 1;
-            double b1 = 1;
-            double a2 = 2;
-            double b2 = 1;
-            double a3;
-            double b3;
-            s = a1 / b1 + a2 / b2;
-            for (double u = 1; u <= 3; u++)
-            {
-                a3 = a1 + a2;
-                b3 = b1 + b2;
-                s += a3 / b3;
-                a1 = a2;
-                b1 = b2;
-                a2 = a3;
-                b2 = b3;
-            }
-            Console.WriteLine($"1.15: {s}");
-            Console.WriteLine("\n");
-
-            Console.WriteLine("Введите x: ");
-            double m = Math.Cos(Convert.ToDouble(Console.ReadLine()));
-            double r = 1, q = 0;
-            while (Math.Cos(r * x) / (r * r) >= 0.0001)
-            {
-                q += Math.Cos(r * x) / (r * r);
-                r++;
-             
-            }
-            Console.WriteLine($"2.1: {q}");
-            Console.WriteLine();
-
-            int L = 30000;
-            int o = 1;
-            int e = 1;
-
-            while (e <= L)
-            {
-                o += 3;
-                e *= o;
-            };
-            Console.WriteLine($"2.2: {o - 1}");
-            Console.WriteLine();
-
-            s = 0;
-            n = 0;
-            Console.WriteLine("Введите a: ");
-            double a10 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите h: ");
-            double h1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
-            while (s <= p)
-            {
-                s += a10 + h1 * n;
-                n++;
-            }
-            n--;
-            Console.WriteLine($"2.3: {n}");
-            Console.WriteLine();
-
-            s = 0;
-            Console.WriteLine("Введите x: |x| < 1)");
-            double x1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
-            double d = 1;
-            while (d >= 0.0001)
-            {
-                s += d;
-                d *= x1 * x1;
-            }
-            Console.WriteLine($"2.4: {s}");
-            Console.WriteLine();
-
-            Console.WriteLine("Введите n: ");
-            double l = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите m: ");
-            m = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
-            double ch = 0;
-            while (l >= m)
-            {
-                ch++;
-                l -= m;
-            }
-            Console.WriteLine($"2.5: Частное: {ch}, остаток: {l}");
-            Console.WriteLine();
-
-            string except = "не выполнять";
-            Console.WriteLine($"2.6: {e}");
-            Console.WriteLine();
-
-            double dayly = 10;
-            double day = 1;
-            s = 10;
-            bool f1, f2, f3;
-            f1 = f2 = f3 = false;
-            double g1, g2, g3;
-            g1 = g2 = g3 = 1;
-            while ((f1 & f2 & f3) == false)
-            {
-                day++;
-                dayly *= 1.1;
-                s += dayly;
-                if (day == 7 & f1 == false)
-                {
-                    f1 = true;
-                    g1 = s;
-                }
-                if (s >= 100 & f2 == false)
-                {
-                    f2 = true;
-                    g2 = day;
-                }
-                if (dayly > 20 & f3 == false)
-                {
-                    f3 = true;
-                    g3 = day;
+                    Console.WriteLine($"точка {i6_2+1}  не подходит");
                 }
             }
-            Console.WriteLine($"2.7: а) {g1} б) {g2} в){g3}");
-            Console.WriteLine();
 
-            s = 10000;
-            int w = 0;
-            while (s < 20000)
+
+            //9 задача 2 уровень
+            Console.WriteLine("введите количество участников: ");
+            int count_plav = Int32.Parse(Console.ReadLine());
+            double min_vreme = 10000;
+            for (int i9_2 = 0; i9_2 < count_plav; i9_2++)
             {
-                s *= 1.08;
-                w++;
-            }
-            Console.WriteLine($"2.8: {w}");
-            Console.WriteLine("\n");
+                Console.WriteLine($"введите результат {i9_2+1} участника: ");
+                double ckorost = Convert.ToDouble(Console.ReadLine());
+                min_vreme = Math.Min(ckorost, min_vreme);
 
-            double A = 0.1, B = 1, H = 0.1;
-            for (double X = A; X <= B; X += H)
-            {
-                double S = 0;
-                for (double i = 0; ; i++)
-                {
-                    double K = Math.Pow(-1, i) * (Math.Pow(X, 2 * i) / factorial(2 * i));
-                    if (Math.Abs(K) < 0.0001)
-                    {
-                        break;
-                    }
-                    S += K;
-                   
-                    Console.WriteLine($"x = {X}, s = {S}, y = {Math.Cos(X)}");
-
-            double s = 0; 
-            double a = 0.1, b = 1, h = 0.1;
-            double y; 
-            double eps = 0.0001; 
-            double now_elem; 
-            double fact;
-            double stp = 1;
-            for (double x = a; x <= b; x += h)
-            {
-                y = Math.Cos(x);
-                int i = 0;
-                while (true)
-                {
-                   fact = 1;
-                   stp = 1;
-                   for (int j = 1; j <= 2 * i; j++)
-                   {
-                       fact *= j;
-                       stp *= x;
-                   }
-                   if (i % 2 == 0)
-                   {
-                       now_elem = stp / fact;
-                   }
-                   else
-                   {
-                       now_elem = -stp / fact;
-                   }
-
-                   if (Math.Abs(now_elem) < eps)
-                   {
-                        break;
-                   }
-                   else
-                   {
-                        s += now_elem;
-                   }
-                   i++;
-                }
-                Console.WriteLine(s + " " + y);
-                Console.WriteLine();
-                s = 0;
             }
-            Console.ReadKey();
-                }
-            }
+            Console.WriteLine($"минимальный результат: {min_vreme}");
         }
     }
 }
-
-
-
-
-
-
