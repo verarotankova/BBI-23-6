@@ -570,38 +570,46 @@ namespace ConsoleApp2
             }
             Console.WriteLine();
             //2 уровень 11 задача
-            double[] a2_11 = new double[7];
-            Console.WriteLine("Введите P: ");
-            double P = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите массив: ");
-            for (int i = 0; i < 7; i++)
+            Console.WriteLine("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            int[] a2_11 = new int[n];
+            Console.WriteLine("Введите число P: ");
+            int p = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите элементы массива: ");
+            int lastIndex = -1;
+            for (int i = 0; i < n; i++)
             {
-                a2_11[i] = Convert.ToDouble(Console.ReadLine());
-            }
-            int last_positive_index = 0;
-            for (int i = 0; i < 7; i++)
-            {
+                string s = Console.ReadLine();
+                a2_11[i] = int.Parse(s);
                 if (a2_11[i] > 0)
                 {
-                    last_positive_index = i;
+                    lastIndex = i;
                 }
             }
-            double[] new_a2_11 = new double[8];
-            for (int i = 0; i < 8; i++)
+            if (lastIndex >= 0)
             {
-                if (i == 8)
+                int[] b = new int[n + 1];
+                for (int i = 0; i <= lastIndex; i++)
                 {
-                    new_a2_11[i] = P;
+                    b[i] = a2_11[i];
                 }
-                else
+                b[lastIndex + 1] = p;
+                for (int i = lastIndex + 2; i < n + 1; i++)
                 {
-                    new_a2_11[i] = a2_11[i];
+                    b[i] = a2_11[i - 1];
                 }
-            }
+                a2_11 = b;
+                n++;
 
-            for (int i = 0; i < 7; i++)
+                Console.WriteLine("Массив после вставки: ");
+                for (int i = 0; i < n; i++)
+                {
+                    Console.Write("{0} ", a2_11[i]);
+                }
+            }
+            else
             {
-                Console.Write($"{a2_11[i]} ");
+                Console.WriteLine("В массиве нет положительных элементов.");
             }
             //2 уровень 12 задача
             int[] a2_12 = new int[5];
@@ -666,32 +674,48 @@ namespace ConsoleApp2
                 }
             }
             //2 уровень 14 задача
-            Console.WriteLine("Введите размер массива: ");
-            int number = int.Parse(Console.ReadLine());
-            double[] a2_14 = new double[number];
-            int k2_14 = 0;
-            double max2_14 = -1000000000;
-            int nii2_14 = 0;
+            Console.WriteLine("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите массив: ");
-            for (int i = 0; i < number; i++)
+            int[] a2_14 = new int[n];
+            for (int i = 0; i < n; i++)
             {
-                a2_14[i] = Convert.ToDouble(Console.ReadLine());
-                if (a2_14[i] < 0 & k2_14 == 0)
+                string s = Console.ReadLine();
+                a2_14[i] = int.Parse(s);
+            }
+            int a2_14max = a2_14[0];
+            int imax = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (a2_14[i] > a2_14max)
                 {
-                    k2_14 = i;
-                }
-                if (a2_14[i] > max2_14)
-                {
-                    max2_14 = a2_14[i];
-                    nii2_14 = i;
+                    a2_14max = a2_14[i];
+                    imax = i;
                 }
             }
-            a2_14[nii2_14] = a2_14[k2_14];
-            a2_14[k2_14] = max2_14;
-
-            for (int i = 0; i < number; i++)
+            int k = -1;
+            for (int i = 0; i < n; i++)
             {
-                Console.Write($"{a2_14[i]} ");
+                if (a2_14[i] < 0)
+                {
+                    k = i;
+                    break;
+                }
+            }
+            if (imax >= 0 && k >= 0)
+            {
+                int t = a2_14[imax];
+                a2_14[imax] = a2_14[k];
+                a2_14[k] = t;
+                Console.WriteLine("Получившийся массив: ");
+                for (int i = 0; i < n; i++)
+                {
+                    Console.WriteLine(a2_14[i]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("В массиве нет максимальных или отрицательных элементов.");
             }
             //2 уровень 15 задача
             Console.Write("Введите количество элементов в массиве A: ");
@@ -717,7 +741,7 @@ namespace ConsoleApp2
             {
                 ab[i] = A[i];
             }
-            for (int i = k2_15; i < m2_15 + k; i++)
+            for (int i = k2_15; i < m2_15 + k2_15; i++)
             {
                 ab[i] = B[i - k2_15];
             }
@@ -762,56 +786,59 @@ namespace ConsoleApp2
             }
             Console.WriteLine();
             //2 уровень 17 задача
-            double[] a2_17 = new double[7];
-            double max2_17 = -10000000;
-            double min2_17 = 10000000;
-            double sum1 = 0, sum2 = 0;
-            double c = 0;
-            int ni2_17 = 0, nii2_17 = 0;
-            int k1 = 0, k2 = 0;
-            Console.WriteLine("Введите элементы массива: ");
+            double[] a2_17 = new double[5];
+            double sr = 0;
+            int k = 0;
+            double sum = 0;
+            double max = -10000;
+            double min = 100000;
+            int ni1 = 0;
+            int ni2 = 0;
             for (int i = 0; i < a2_17.Length; i++)
             {
                 a2_17[i] = double.Parse(Console.ReadLine());
-                if (a2_17[i] > max2_17)
+                if (a2_17[i] > max)
                 {
-                    max2_17 = a2_17[i];
-                    ni2_17 = i;
+                    max = a2_17[i];
+                    ni1 = i;
                 }
-                if (a2_17[i] < min2_17)
+                if (a2_17[i] < min)
                 {
-                    min2_17 = a2_17[i];
-                    nii2_17 = i;
-                }
-                if (a2_17[i] > 0)
-                {
-                    sum1 += a2_17[i];
-                    k1++;
-                }
-                else if (a2_17[i] < 0)
-                {
-                    sum2 += a2_17[i];
-                    k2++;
+                    min = a2_17[i];
+                    ni2 = i;
                 }
             }
-            for (int i = ni2_17 + 1; i < 7; i++)
+            if (ni1 < ni2)
             {
-                if (a2_17[i] < min2_17)
+                for (int i = 0; i < a2_17.Length; ++i)
                 {
-                    min2_17 = a2_17[i];
-                    nii2_17 = i;
+                    if (a2_17[i] > 0)
+                    {
+                        sum += a2_17[i];
+                        k++;
+                    }
                 }
-            }
-            if (ni2_17 > nii2_17)
-            {
-                c = sum1 / k1;
             }
             else
             {
-                c = sum2 / k2;
+                for (int i = 0; i < a2_17.Length; ++i)
+                {
+                    if (a2_17[i] < 0)
+                    {
+                        sum += a2_17[i];
+                        k++;
+                    }
+                }
             }
-            Console.Write(c);
-            Console.WriteLine();
+            if (k == 0)
+            {
+                Console.WriteLine("Нет положительных или отрицательных элементов");
+            }
+            else
+            {
+                sr = sum / k;
+                Console.WriteLine(sr);
+            }
             //2 уровень 18 задача
             Console.Write("Введите количество элементов в массиве: ");
             int N = Int32.Parse(Console.ReadLine());
