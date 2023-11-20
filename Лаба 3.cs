@@ -718,41 +718,49 @@ namespace ConsoleApp2
                 Console.WriteLine("В массиве нет максимальных или отрицательных элементов.");
             }
             //2 уровень 15 задача
-            Console.Write("Введите количество элементов в массиве A: ");
-            int n2_15 = Int32.Parse(Console.ReadLine());
-            double[] A = new double[n2_15];
-            Console.WriteLine("Введите элементы массива A: ");
-            for (int i = 0; i < n2_15; i++)
+            Console.WriteLine("Введите количество элементов в массиве A: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите массив: ");
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
             {
-                A[i] = double.Parse(Console.ReadLine());
+                string s = Console.ReadLine();
+                a[i] = int.Parse(s);
             }
-            Console.Write("Введите количество элементов в массиве B: ");
-            int m2_15 = Int32.Parse(Console.ReadLine());
-            double[] B = new double[m2_15];
-            Console.WriteLine("Введите элементы массива B: ");
-            for (int i = 0; i < m2_15; i++)
+            Console.WriteLine("Введите количество элементов в массиве В: ");
+            int m = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите массив: ");
+            int[] b = new int[m];
+            for (int i = 0; i < m; i++)
             {
-                B[i] = double.Parse(Console.ReadLine());
+                string s1 = Console.ReadLine();
+                b[i] = int.Parse(s1);
             }
-            Console.Write("Введите число k: ");
-            int k2_15 = Int32.Parse(Console.ReadLine());
-            double[] ab = new double[n2_15 + m2_15];
-            for (int i = 0; i < k2_15; i++)
+            int[] c = new int[n + m];
+            Console.WriteLine("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            if (k >= a.Length)
             {
-                ab[i] = A[i];
+                Console.WriteLine("Не существует такого элемента в массиве А");
             }
-            for (int i = k2_15; i < m2_15 + k2_15; i++)
+            else
             {
-                ab[i] = B[i - k2_15];
-            }
-            for (int i = m2_15 + k2_15; i < n2_15 + m2_15; i++)
-            {
-                ab[i] = A[i - m2_15];
-            }
-            Console.Write("Результат: ");
-            for (int i = 0; i < n2_15 + m2_15; i++)
-            {
-                Console.Write(ab[i] + " ");
+                for (int i = 0; i <= k; i++)
+                {
+                    c[i] = a[i];
+                }
+                for (int i = 0; i < m; i++)
+                {
+                    c[k + i + 1] = b[i];
+                }
+                for (int i = k + m + 1; i < m + n; i++)
+                {
+                    c[i] = a[i - m];
+                }
+                for (int i = 0; i < m + n; i++)
+                {
+                    Console.WriteLine(c[i]);
+                }
             }
             //2 уровень 16 задача
             int[] a2_16 = new int[7];
