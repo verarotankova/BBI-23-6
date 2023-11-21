@@ -958,7 +958,7 @@ namespace ConsoleApp2
                     ni3_2 = i;
                 }
             }
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n3_2; i++)
             {
                 if (a3_2[i] == max3_2)
                 {
