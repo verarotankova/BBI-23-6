@@ -637,6 +637,60 @@ namespace ConsoleApp2
                 }
                 Console.WriteLine();
             }
+            ////3 уровень 5 задача
+            Console.WriteLine("Введите n: "); 
+            int n = Int32.Parse(Console.ReadLine());
+            double[,] a3_5 = new double[n, n];
+            double max = 0;
+            double c = 0;
+            int jmax = 0;
+            int imax = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    a3_5[i, j] = double.Parse(Console.ReadLine());
+                }
+                Console.WriteLine();
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (Math.Abs(a3_5[i, j]) > max)
+                    {
+                        max = Math.Abs(a3_5[i, j]);
+                        jmax = j;
+                        imax = i;
+                    }
+                }
+            }
+            int k = Int32.Parse(Console.ReadLine());
+            if (k >= 1 & k <= n)
+            {
+                k -= 1;
+                for (int j = 0; j < n; j++)
+                {
+                    c = a3_5[imax, j];
+                    a3_5[imax, j] = a3_5[k, j];
+                    a3_5[k, j] = c;
+                }
+                for (int i = 0; i < n; i++)
+                {
+                    c = a3_5[i, jmax];
+                    a3_5[i, jmax] = a3_5[i, k];
+                    a3_5[i, k] = c;
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(a3_5[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
 
         }
     }
