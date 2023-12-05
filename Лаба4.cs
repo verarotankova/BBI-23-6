@@ -691,6 +691,56 @@ namespace ConsoleApp2
                 }
                 Console.WriteLine();
             }
+                        int[,] a = new int[5, 3]
+    {
+        { 5, 11, 3 },
+        { 4, 2, 10 },
+        { 3, 7, 9 },
+        { 9, 7, 3 },
+        { 8, 1, 2 }
+    };
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        for (int k = j + 1; k < 3; k++)
+                        {
+                            if (a[i, j] < a[i, k])
+                            {
+                                int temp = a[i, j];
+                                a[i, j] = a[i, k];
+                                a[i, k] = temp;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        for (int k = j + 1; k < 3; k++)
+                        {
+                            if (a[i, j] > a[i, k])
+                            {
+                                int temp = a[i, j];
+                                a[i, j] = a[i, k];
+                                a[i, k] = temp;
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(a[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
 
         }
     }
