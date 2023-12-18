@@ -262,30 +262,32 @@ static void Printarray(int[] array)
 }
 //27 задача
 int[,] A = new int[5, 6]
-            {
-                { 11, -2, 3, 4, 5,-1 },
-                { 6, 7, 8, 9, 10,5 },
-                { 11, 12, 25, 0, 15,0 },
-                { 16, 17, -18, 19, 20,7 },
-                { 21, 22, 23, 24, 13,6 },
-            };
+                        {
+                            { 11, -2, 3, 4, 5,-1 },
+                            { 6, 7, 8, 9, 10,5 },
+                            { 11, 12, 25, 0, 15,0 },
+                            { 16, 17, -18, 19, 20,7 },
+                            { 21, 22, 23, 24, 13,6 },
+                        };
             int[,] B = new int[4, 4]
             {
-                {2, -3, 0, 5 },
-                {1, 23, 0, -23},
-                { 4,5,6,7},
-                {3,7,12,-29 },
+                            {2, -3, 0, 5 },
+                            {1, 23, 0, -23},
+                            { 4,5,6,7},
+                            {3,7,12,-29 },
             };
             zamena(A);
             zamena(B);
             PrintMatrix(A);
+            Console.WriteLine();
             PrintMatrix(B);
             static void zamena(int[,] matrix)
             {
-                int nj = 0;  
-                int max = matrix[0, 0];
+                int nj = 0;
+                
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
+                    int max = matrix[i, 0];
                     if (i % 2 == 0)
                     {
                         for (int j = 0; j < matrix.GetLength(1); j++)
@@ -302,8 +304,14 @@ int[,] A = new int[5, 6]
                     {
                         for (int j = 0; j < matrix.GetLength(1); j++)
                         {
-                            matrix[i, j] *= j;
+                            if (matrix[i, j] > max)
+                            {
+                                max = matrix[i, j];
+                                nj = j;
+                            }  
                         }
+                        matrix[i, nj] *= nj;
+                    }
                     }
                 }
             }
