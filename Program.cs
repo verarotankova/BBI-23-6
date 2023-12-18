@@ -132,89 +132,90 @@ static int[] SumPositive(int[,] matrix)
 }
 //15 задача
 double[,] A = new double[6, 5]
-{
+            {
                 { 11, -2, 3, 4, 5 },
                 { 6, 7, 8, 9, 10 },
                 { 11, 12, 25, 0, 15 },
                 { 16, 17, -18, 19, 20 },
                 { 21, 22, 23, 24, 13 },
                 {-1, 6 , 5, 8, -10 }
-};
-double[,] B = new double[7, 4]
-{
-                {2, -3, 0, 5 },
-                {1, 23, 0, -23},
-                { 4,5,6,7},
-                {3,7,12,-29 },
-                {0,0,0,0 },
-                {-1,-2,-3,4 },
-                { 3,3,3,3},
-};
-double[,] C = new double[3, 3]
-{
+            };
+            double[,] B = new double[1, 2]
+            {
+                {2, 5},
+                
+            };
+            double[,] C = new double[1, 3]
+            {
                 {3,-19,25 },
-                {1,2,3 },
-                { 23,6,7}
-};
-double srA = Srznach(A);
-double srB = Srznach(B);
-double srC = Srznach(C);
-double[] znac = new double[3];
-znac[0] = srA; znac[1] = srB; znac[2] = srC;
-if (znac[0] < znac[1] & znac[1] < znac[2])
-{
-    Console.WriteLine("возрастает");
-}
-if (znac[0] > znac[1] & znac[1] > znac[2])
-{
-    Console.WriteLine("убывает");
-}
-else
-{
-    Console.WriteLine("ничего не образует");
-}
-for (int i = 0; i < 3; i++)
-{
-    Console.WriteLine(znac[i]);
-}
-static double Srznach(double[,] matrix)
-{
-    double max = matrix[0, 0];
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[i, j] > max)
+                
+            };
+            double srA = Srznach(A);
+            double srB = Srznach(B);
+            double srC = Srznach(C);
+            double[] znac = new double[3];
+            znac[0] = srA; znac[1] = srB; znac[2] = srC;
+            if (znac[0] < znac[1] & znac[1] < znac[2])
             {
-                max = matrix[i, j];
+                Console.WriteLine("возрастает");
             }
-        }
-    }
-    double min = matrix[0, 0];
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[i, j] < min)
+            if (znac[0] > znac[1] & znac[1] > znac[2])
             {
-                min = matrix[i, j];
+                Console.WriteLine("убывает");
             }
-        }
-    }
-    double sum = 0;
-    double col = 0;
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            sum += matrix[i, j];
-            col++;
-        }
-    }
-    double sumnew = sum - max - min;
-    double sr = sumnew / (col - 2);
-    return sr;
-}
+            else
+            {
+                Console.WriteLine("ничего не образует");
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(znac[i]);
+            }
+            static double Srznach(double[,] matrix)
+            {
+                double max = matrix[0, 0];
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        if (matrix[i, j] > max)
+                        {
+                            max = matrix[i, j];
+                        }
+                    }
+                }
+                double min = matrix[0, 0];
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        if (matrix[i, j] < min)
+                        {
+                            min = matrix[i, j];
+                        }
+                    }
+                }
+                double sum = 0;
+                double col = 0;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        sum += matrix[i, j];
+                        col++;
+                    }
+                }
+                if (col == 2)
+                {
+                    return 0;
+                }
+                else
+                {
+                    double sumnew = sum - max - min;
+                    double sr = sumnew / (col - 2);
+                    return sr;
+                }
+            }
 //21 задача
 int[,] A = new int[5, 5]
 {
