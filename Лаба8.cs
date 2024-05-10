@@ -27,10 +27,15 @@ class Task_2 : Task
     }
     public override void ParseText(string text)
     {
-        _text = ReverseString(text);
+        string[] words = text.Split(' ');
+        for (int i = 0; i < words.Length; i++)
+        {
+            words[i] = ReverseString(words[i]);
+        }
+
+        _text = string.Join(' ', words);
     }
 }
-
 
 class Task_4 : Task
 {
