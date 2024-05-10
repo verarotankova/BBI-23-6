@@ -30,9 +30,22 @@ class Task_2 : Task
         string[] words = text.Split(' ');
         for (int i = 0; i < words.Length; i++)
         {
-            words[i] = ReverseString(words[i]);
+            string word = words[i];
+            string wordreversed = "";
+            string punctuation = "";
+            foreach (char c in word)
+            {
+                if (char.IsPunctuation(c))
+                {
+                    punctuation += c;
+                }
+                else
+                {
+                    wordreversed = c + wordreversed;
+                }
+            }
+            words[i] = wordreversed + punctuation;
         }
-
         _text = string.Join(' ', words);
     }
 }
